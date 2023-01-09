@@ -52,15 +52,15 @@ key_pressed = e.keyCode;
         console.log("up");
     }
     if(key_pressed=='39'){
-        Up();
+        right();
         console.log("right");
     }
     if(key_pressed=='37'){
-        Up();
+        left();
         console.log("left");
     }
     if(key_pressed=='40'){
-        Up();
+        down();
         console.log("down");
     }
     if(key_pressed=='87'){
@@ -98,5 +98,41 @@ key_pressed = e.keyCode;
     if(key_pressed=='68'){
         new_image("dark_green.png");
         console.log("d");
+    }
+}
+function Up(){
+    if(player_y>=0){
+        player_y=player_y-block_image_height;
+        console.log("block image hieght="+block_image_height);
+        console.log("when up arrow is pressed,x="+player_x+",y="+player_y);
+        canvas.remove(player_objects);
+        player_updates();
+    }
+}
+function down(){
+    if(player_y<=500){
+        player_y=player_y+block_image_height;
+        console.log("block image hieght="+block_image_height);
+        console.log("when down arrow is pressed,x="+player_x+",y="+player_y);
+        canvas.remove(player_objects);
+        player_updates();
+    }
+}
+function right(){
+    if(player_x<=850){
+        player_x=player_x+block_image_width;
+        console.log("block image width="+block_image_width);
+        console.log("when right arrow is pressed,x="+player_x+",y="+player_y);
+        canvas.remove(player_objects);
+        player_updates();
+    }
+}
+function left(){
+    if(player_x>=0){
+        player_x=player_x-block_image_width;
+        console.log("block image width="+block_image_width);
+        console.log("when left arrow is pressed,x="+player_x+",y="+player_y);
+        canvas.remove(player_objects);
+        player_updates();
     }
 }
